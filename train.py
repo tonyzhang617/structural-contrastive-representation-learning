@@ -17,7 +17,7 @@ from transformers import AutoModel, AutoTokenizer
 from evaluate import evaluate
 
 
-parser = ArgumentParser('zero shot XMC')
+parser = ArgumentParser('structural_contrastive_learning')
 parser.add_argument('--model', type=str, default='sentence-transformers/all-mpnet-base-v1')
 parser.add_argument('--tokenizer', type=str, default='sentence-transformers/all-mpnet-base-v1')
 parser.add_argument('--dataset', type=str, default='dataset/LF-Amazon-131K')
@@ -80,7 +80,6 @@ model = nn.DataParallel(model.to(device))
 tokenizer = AutoTokenizer.from_pretrained(args.model if args.tokenizer is None else args.tokenizer)
 
 class AverageMeter(object):
-    """Computes and stores the average and current value"""
     def __init__(self):
         self.reset()
 
